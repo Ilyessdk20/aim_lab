@@ -1,0 +1,36 @@
+#class Jeu
+class Jeu {
+  Jeu() {
+  }
+  void reset() {
+    score=0;
+  }
+  void gagner() {
+
+    if (!pressedmouse && mousePressed)
+    {
+      pressedmouse = true;
+      if (cible.estTouchee(mouseX, mouseY))
+      {
+        score++;
+        cible.changerPosition();
+        time=time+40;
+      }
+      //l'utilisateur a raté la cible
+      else {
+        background(0);
+        text("Game Over", width/6, height/2);
+        text("your Time is : " +time/60, width/6, height/4);
+        text("your Score Is : " +score, width/6, height/6);
+        noLoop();
+      }
+    }
+    if (cible.y >= height ) {
+      background(0);
+      text("Game Over", width/6, height/2);
+      text("your Time is : " +time/60, width/6, height/4);
+      text("your Score Is : " +score, width/6, height/6);
+      noLoop();
+    }
+  }
+}
