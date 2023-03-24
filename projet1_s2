@@ -1,0 +1,56 @@
+#code principal
+Cible cible;
+int score;
+int time=10;
+boolean pressedmouse;
+float angle1=1;
+int r=25;
+float vitesse=0;
+Jeu jeu = new Jeu();
+Demarrage demarrage = new Demarrage();
+
+//Fenêtre de l'affichage
+void setup() {
+  size(600, 600);
+  textAlign(LEFT);
+  textSize(width/50);
+  frameRate(30);
+  jeu.reset();
+  cible = new Cible(random(50 / 2, width - 50 / 2), random(50 / 2, height - 50 / 2), 50);
+}
+
+void draw() {
+  background(0);
+  demarrage.menu();
+  //les conditions du jeu
+  //l'utilisateur veut commencer le jeu
+  if (keyCode==UP) {
+    background(255);
+    //lancement du jeu
+    jeu.gagner();
+    if (pressedmouse && !mousePressed)
+    {
+      pressedmouse = false;
+    }
+    // les paramètres et l'affichage du la cible
+    cible.afficher();
+    //faire bouger la cible
+    cible.tourner();
+    //l'affichage au cours du game
+    demarrage.game();
+  }
+  //les choix de l'utilisateur au menu  de démarrage
+  else {
+    //l'utilisateur veut quitter  le jeu et fermer la fenetre
+    if (keyCode==DOWN)
+    {
+      demarrage.arreter();
+    } else {
+      //l'utilisateur veut recommencer  le jeu au cours de la game
+      if (keyCode==37)
+      {
+        jeu.reset();
+      }
+    }
+  }
+}
