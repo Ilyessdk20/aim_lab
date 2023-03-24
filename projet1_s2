@@ -1,0 +1,54 @@
+class Cible {
+  float x, y;
+  float taille;
+  color[] couleurs = {color(250, 0, 0), color(250, 250, 0), color(0, 0, 250), color(random(0, 250), random(0, 250), random(0, 250))};
+  float angle = 0;
+
+  // Constructeur de la classe
+  Cible(float x, float y, float taille) {
+    this.x = x;
+    this.y = y;
+    this.taille = taille;
+  }
+
+  // Méthode pour afficher la cible
+  void afficher() {
+    for (int i = couleurs.length - 1; i >= 0; i--) {
+      fill(couleurs[i]);
+      ellipse(x, y, taille * (i + 1) / couleurs.length, taille * (i + 1) / couleurs.length);
+    }
+    stroke(0);
+    strokeWeight(taille / 6);
+    line(x - taille / 2, y, x + taille / 2, y);
+    line(x, y - taille / 2, x, y + taille / 2);
+  }
+
+  // Méthode pour faire bouger la cible
+  void bouger(float vitesse) {
+    angle += PI / (2 * taille);
+    x = (x + vitesse) % width;
+    y = y + sin(angle) * taille / 6;
+  }
+
+  // Méthode pour vérifier si la cible a été touchée
+  boolean estTouchee(float mx, float my) {
+    float distance = dist(x, y, mx, my);
+    return distance < taille;
+  }
+  void tourner() {
+    strokeWeight(1);
+    line( r * cos(angle1)+cible.x, r * sin(angle1)+cible.y,
+      r * cos(angle1+PI)+cible.x, r * sin(angle1+PI)+cible.y );
+    line( r * cos(angle1+PI/2)+cible.x, r * sin(angle1+PI/2)+cible.y,
+      r * cos(angle1+(3*PI)/2)+cible.x, r * sin(angle1+(3*PI)/2)+cible.y );
+    angle1 += PI/(4*r);
+    cible.bouger(vitesse);
+  }
+
+  // Méthode pour changer la position de la cible aléatoirement
+  void changerPosition() {
+    x = random(taille / 2, width - taille / 2);
+    y = random(taille / 2, height - taille);
+    angle = 0;
+  }
+}
