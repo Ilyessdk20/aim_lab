@@ -6,5 +6,7 @@ Le jeu commence avec un menu qui fournit des instructions au joueur. Pour commen
 Le code définit quelques classes :
 
 Cible : représente l'objet cible et contient des méthodes pour afficher, déplacer et détecter les touches.
+
 Demarrage : représente le menu et fournit des méthodes pour afficher le menu et arrêter le jeu.
+
 Jeu : fournit des méthodes pour démarrer et réinitialiser le jeu, et pour incrémenter le score du joueur lorsqu'il touche la cible.
