@@ -1,0 +1,25 @@
+#class Demarrage
+class Demarrage {
+  Demarrage() {
+  }
+  void menu() {
+
+    //le menu de demarrage et les choix et les commandes d'1utilisateurs(clavier)
+    fill(0, 0, 250);
+    textSize(width/40);
+    text("Appuyer sur la touche  ↑ pour commencer (clavier) ", width/8, height/6);
+    text(" au cours de la game appuyer sur ← puis ↑ pour initialiser le score et le time (clavier)", width/9, height/3);
+    text("appuyer sur la touche  ↓ pour fermer et quitte (clavier)", width/8, height/2);
+  }
+  void game() {
+    //l'affichage au cours du game
+    fill(0, 0, 250);
+    text("SCORE : " +score, width/80, height/20);
+    time=time+1;
+    text("TIME :" +time/60, width/8, height-60);
+  }
+  void arreter() {
+    text("enjoy", width/2, height/2);
+    exit();
+  }
+}
