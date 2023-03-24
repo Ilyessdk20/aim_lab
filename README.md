@@ -10,3 +10,6 @@ Cible : représente l'objet cible et contient des méthodes pour afficher, dépl
 Demarrage : représente le menu et fournit des méthodes pour afficher le menu et arrêter le jeu.
 
 Jeu : fournit des méthodes pour démarrer et réinitialiser le jeu, et pour incrémenter le score du joueur lorsqu'il touche la cible.
+
+Télécharger le dossier zip pour essayer le jeu directement.
+
